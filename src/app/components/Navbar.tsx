@@ -1,5 +1,5 @@
 "use client";
-// components/NavBar.js
+
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,13 +8,13 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
 
     const handleClick = useCallback(() => {
-        setOpen(prevOpen => !prevOpen); // toggle width
+        setOpen(prevOpen => !prevOpen);
     }, []); 
 
     return (
         <nav role="navigation">
             <div className='flex justify-between p-2'>
-                <span className='w-16'>
+                <div className='w-16'>
                     <Image 
                         src="/logo.png" 
                         alt='Logo Teatra 011' 
@@ -22,9 +22,9 @@ export default function Navbar() {
                         height={794} 
                         className='rounded-full' 
                     />
-                </span>
+                </div>
                 <div className="flex items-center justify-center">
-                    <span 
+                    <div 
                         onClick={handleClick} 
                         className={`hover:text-amber-300 transition-colors duration-300 ${open ? "hidden" : ""}`} 
                         aria-expanded={open} 
@@ -47,17 +47,17 @@ export default function Navbar() {
                                 d="M4 6h16M4 12h16M4 18h16"
                             />
                         </svg>
-                    </span>
+                    </div>
                 </div>
             </div>
             <div id="myNav" className={`h-full ${open ? "w-full" : "w-0"} fixed z-10 right-0 top-0 bg-black bg-opacity-90 overflow-x-hidden transition-width duration-500`}>
-                <span 
+                <div 
                     className="absolute top-5 right-11 text-4xl cursor-pointer hover:text-amber-300 transition-colors duration-300" 
                     onClick={handleClick} 
                     aria-label="Zatvorite navigacioni meni"
                 >
                     &times;
-                </span>
+                </div>
                 <div className="relative top-1/4 w-full text-center mt-8">
                     <Link href="/" className='p-2 no-underline text-4xl text-white block hover:text-amber-300 transition-colors duration-300'>Početna</Link>
                     <Link href="/predstave" className='p-2 no-underline text-4xl text-white block hover:text-amber-300 transition-colors duration-300'>Predstave</Link>
