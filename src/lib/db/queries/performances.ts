@@ -1,10 +1,11 @@
 export const sqlRepertoire = 
     `select 
         name,
-        pathname,
-        img,
+        pathname identifier,
+        img as oldImg,
         slogan,
-        alt
+        alt,
+        '' posterPath
     from performances
     where active = 1
     order by premiereDate desc;`;
