@@ -1,6 +1,6 @@
 import { runQuery } from "@/lib/db/executor";
 import { sqlRepertoire } from "@/lib/db/queries/performances";
-import { Play } from "@/lib/Play";
+import { Play } from "@/lib/db/models/Play";
 import { NextResponse } from "next/server";
 
 
