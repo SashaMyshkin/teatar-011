@@ -1,8 +1,7 @@
 import { runQuery } from "@/lib/db/executor";
 import { sqlRepertoire } from "@/lib/db/queries/performances";
-import { Play } from "@/lib/db/models/Play";
 import { NextResponse } from "next/server";
-import { RowDataPacketPlayAdapter } from "@/lib/Adapters/RowDataPacketPlayAdapter";
+import { RowDataPacket } from "mysql2";
 
 
 export async function GET() {
@@ -14,9 +13,9 @@ export async function GET() {
         return NextResponse.json(result, { status: 500 });
     }
 
-    const feedback: Feedback<Play[]> = {
+    const feedback: Feedback<RowDataPacket[]> = {
         hasError: false,
-        data: result.data?.[0] ? (new RowDataPacketPlayAdapter(result.data[0])).toPlays()  : [],
+        data: result.data?.[0] ? result.data[0] : [],
     };
 
     return NextResponse.json(feedback);

@@ -8,6 +8,7 @@ declare namespace NodeJS {
         DB_CONNECTION_LIMIT:number;
         DB_MAX_IDLE:number;
         DB_IDLE_TIMEOUT:number;
+        NEXT_PUBLIC_BASE_URL:string;
         
     }
 } 
