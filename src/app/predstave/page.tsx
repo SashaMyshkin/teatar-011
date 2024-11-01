@@ -9,8 +9,8 @@ const Predstave = async () => {
     });
 
     const result = await res.json();
-    const plays = new PlayAdapter(result.data).toDataType();
-    const cards = new CardAdapter(plays).toDataType();
+    const plays = new PlayAdapter(result.data).adapt();
+    const cards = new CardAdapter(plays).adapt();
 
     
     return (

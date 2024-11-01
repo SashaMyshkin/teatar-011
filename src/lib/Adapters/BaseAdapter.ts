@@ -3,7 +3,7 @@ export abstract class BaseAdapter<T> {
     constructor(data: T[]) {
         this.data = data;
     }
-    abstract toDataType(): any[];
+    abstract adapt(): any[];
 }
 
 

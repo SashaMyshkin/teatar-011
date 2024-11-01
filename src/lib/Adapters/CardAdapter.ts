@@ -7,7 +7,7 @@ export class CardAdapter extends BaseAdapter<Play> {
         super(data);
     }
 
-    toDataType(): Card[] {
+    adapt(): Card[] {
         return this.data.map(elem => this.createCard(elem));
     }
 

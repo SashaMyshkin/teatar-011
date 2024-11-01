@@ -7,7 +7,7 @@ export class PlayAdapter extends BaseAdapter<Play> {
         super(data);
     }
 
-    toDataType(): Play[] {
+    adapt(): Play[] {
         return this.data.map(elem => {
             const play = new Play();
             play.alt = elem.alt ?? ''; 
