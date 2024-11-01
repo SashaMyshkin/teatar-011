@@ -1,13 +1,13 @@
 import { runQuery } from "@/lib/db/executor";
-import { sqlRepertoire } from "@/lib/db/queries/performances";
 import { NextResponse } from "next/server";
 import { RowDataPacket } from "mysql2";
+import { sqlActors } from "@/lib/db/queries/actors";
 
 
 export async function GET() {
 
     
-   /* const result = await runQuery(sqlRepertoire);
+    const result = await runQuery(sqlActors);
 
     if(result.hasError) {
         return NextResponse.json(result, { status: 500 });
@@ -19,7 +19,7 @@ export async function GET() {
     };
 
     return NextResponse.json(feedback);
-   */
+   
     
 }
 
