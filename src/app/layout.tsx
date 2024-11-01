@@ -21,7 +21,7 @@ export default function RootLayout({
 					<Navbar></Navbar>
 				</header>
 				
-				<main>
+				<main className="max-full h-auto mx-auto p-8">
 					{children}
 				</main>
 				<footer></footer>

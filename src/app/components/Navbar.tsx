@@ -11,6 +11,10 @@ export default function Navbar() {
         setOpen(prevOpen => !prevOpen);
     }, []); 
 
+    const closeMenu = useCallback(() => {
+        setOpen(false);
+    }, []);
+
     return (
         <nav role="navigation">
             <div className='flex justify-between p-2'>
@@ -59,9 +63,9 @@ export default function Navbar() {
                     &times;
                 </div>
                 <div className="relative top-1/4 w-full text-center mt-8">
-                    <Link href="/" className='p-2 no-underline text-4xl text-white block hover:text-amber-300 transition-colors duration-300'>Početna</Link>
-                    <Link href="/predstave" className='p-2 no-underline text-4xl text-white block hover:text-amber-300 transition-colors duration-300'>Predstave</Link>
-                    <Link href="/ansambl" className='p-2 no-underline text-4xl text-white block hover:text-amber-300 transition-colors duration-300'>Ansambl</Link>
+                    <Link href="/" onClick={closeMenu} className='p-2 no-underline text-4xl text-white block hover:text-amber-300 transition-colors duration-300'>Početna</Link>
+                    <Link href="/predstave" onClick={closeMenu} className='p-2 no-underline text-4xl text-white block hover:text-amber-300 transition-colors duration-300'>Predstave</Link>
+                    <Link href="/ansambl" onClick={closeMenu} className='p-2 no-underline text-4xl text-white block hover:text-amber-300 transition-colors duration-300'>Ansambl</Link>
                 </div>
             </div>
         </nav>
