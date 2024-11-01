@@ -3,6 +3,7 @@ interface Card {
     alt:string
     path:string
     header:string
+    moreInfo?:string
 }
 
 interface CardComponentProps {

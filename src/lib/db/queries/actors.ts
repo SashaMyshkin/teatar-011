@@ -2,7 +2,7 @@ export const sqlActors = `
 SELECT 
     CONCAT(m.name, ' ', m.surname) AS fullname,
     ms.id AS membershipStatusId,
-    m.img,
+    m.imgPath,
     m.alt,
     m.identifier,
     m.dateOfJoining,
@@ -16,7 +16,7 @@ GROUP BY
     m.name, 
     m.surname, 
     ms.status, 
-    m.img, 
+    m.imgPath, 
     m.alt, 
     m.identifier, 
     m.dateOfJoining, 

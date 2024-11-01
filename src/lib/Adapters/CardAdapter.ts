@@ -1,9 +1,10 @@
-import { Play } from "../db/models/Play";
-import { BaseAdapter } from "./BaseAdapter";
+import { Play } from "@/lib/db/models/Play";
+import { Actor } from "@/lib/db/models/Actor";
+import { BaseAdapter } from "@/lib/Adapters/BaseAdapter";
 
-export class CardAdapter extends BaseAdapter<Play> {
+export class CardAdapter extends BaseAdapter<Play | Actor> {
     
-    constructor(data: Play[]) {
+    constructor(data: Play[] | Actor[]) {
         super(data);
     }
 
@@ -15,7 +16,10 @@ export class CardAdapter extends BaseAdapter<Play> {
 
         if(elem instanceof Play){
             return this.fromPlay(elem);
-        } else {
+        } else if(elem instanceof Actor){
+            return this.fromActor(elem);
+        }
+        else {
             throw new Error(`Unknown data type ${elem.type}`)
         }
     }
@@ -26,6 +30,16 @@ export class CardAdapter extends BaseAdapter<Play> {
             alt:elem.alt ?? '',
             path: elem.identifier ?? '',
             header: elem.slogan ?? ''
+        }
+    }
+
+    private fromActor(elem: Actor): Card {
+        return {
+            src:elem.imgPath ?? '',
+            alt:elem.alt ?? '',
+            path: elem.identifier ?? '',
+            header: elem.fullname ?? '',
+            moreInfo:elem.membershipStatus ?? ''
         }
     }
 
