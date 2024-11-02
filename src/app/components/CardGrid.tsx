@@ -1,7 +1,4 @@
-
-import { Play } from "@/lib/db/models/Play";
 import Card from "@/app/components/Card";
-import { CardAdapter } from "@/lib/Adapters/CardAdapter";
 
 export default function CardGrid({propsDataSet}: PropsSet<Card>) {
 
