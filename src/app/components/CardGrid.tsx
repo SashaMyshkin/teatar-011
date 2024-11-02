@@ -7,9 +7,9 @@ export default function CardGrid({propsDataSet}: PropsSet<Card>) {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 justify-center">
             {
                 
-                propsDataSet.map(elem =>{
+                propsDataSet.map((elem, index) =>{
                     return (
-                        <div  className="max-w-sm h-fit mx-auto"><Card propsData={elem}></Card></div>
+                        <div key={index}  className="max-w-sm h-fit mx-auto"><Card propsData={elem}></Card></div>
                     )
                 }
                     
