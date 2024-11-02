@@ -1,7 +1,7 @@
 import { pool } from "@/lib/db/pool";
 import { FieldPacket, RowDataPacket } from "mysql2/promise";
 
-export async function runQuery(query:string):Promise<Feedback<[RowDataPacket[], FieldPacket[]]>> {
+export async function runQuery(query:string, values:string[] = []):Promise<Feedback<[RowDataPacket[], FieldPacket[]]>> {
     let conn;
 
     const feedback:Feedback<[RowDataPacket[], FieldPacket[]]> = {
@@ -10,7 +10,7 @@ export async function runQuery(query:string):Promise<Feedback<[RowDataPacket[], 
 
     try {
         conn = await pool.getConnection();
-        const result = await conn.execute<RowDataPacket[]>(query);
+        const result = await conn.execute<RowDataPacket[]>(query, values);
         feedback.data = result;
         conn.unprepare(query)
        
