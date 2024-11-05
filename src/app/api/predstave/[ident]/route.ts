@@ -4,8 +4,11 @@ import { RowDataPacket } from "mysql2";
 import { sqlPerformance } from "@/lib/db/queries/performances";
 
 
-export async function GET(request: NextRequest, { params }: { params: { ident: string } }) {
-	const { ident } = params;
+export async function GET(
+	request: Request,
+	{ params }: { params: Promise<{ ident: string }> }
+  ) {
+	const ident  = (await params).ident;
 
 	const result = await runQuery(sqlPerformance, [ident]);
 
